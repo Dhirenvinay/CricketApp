@@ -4,10 +4,10 @@ import 'package:criclive/detailscreen.dart';
 import 'package:criclive/reusablebuild.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
 void main() {
   runApp(MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -15,9 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cricket Match App',
       theme: ThemeData(
-       // primarySwatch: Colors.blue,
-        useMaterial3: true
-      ),
+          // primarySwatch: Colors.blue,
+          useMaterial3: true),
       debugShowCheckedModeBanner: false,
       home: MatchListScreen(),
     );
@@ -57,13 +56,15 @@ class _MatchListScreenState extends State<MatchListScreen> {
       throw Exception('Failed to fetch matches');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Cricket Matches'),
-        centerTitle: true,
-      ),
+      backgroundColor: Color(0xffa3b18a),
+      // appBar: AppBar(
+      //   title: Text('Cricket Matches'),
+      //   centerTitle: true,
+      // ),
       body: ListView.builder(
         itemCount: matches.length,
         itemBuilder: (context, index) {
@@ -79,11 +80,11 @@ class _MatchListScreenState extends State<MatchListScreen> {
             },
             child: Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height/2.5,
+              height: MediaQuery.of(context).size.height / 2.5,
               margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xffdad7cd),
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
@@ -93,8 +94,8 @@ class _MatchListScreenState extends State<MatchListScreen> {
                     offset: Offset(0, 3),
                   ),
                 ],
-              ), child:ReusableBuild(match: match),
-
+              ),
+              child: ReusableBuild(match: match),
             ),
           );
         },

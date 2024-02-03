@@ -1,30 +1,38 @@
 import 'package:criclive/data.dart';
 import 'package:flutter/material.dart';
 
-class ReusableBuild extends StatelessWidget {
-  const ReusableBuild({super.key, required this.match});
+class DetailedBuild extends StatelessWidget {
+  const DetailedBuild({super.key, required this.match});
   final CricketMatch match;
-
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        // SizedBox(
+        //   height: ,
+        // ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-                height: 50,
-                width: MediaQuery.of(context).size.width / 3,
-                child: Image.network(match.team1Image)), //?? Text("Empty"),
+                height: 100,
+                width: 100,
+                child: Image.network(
+                  match.team1Image,
+                  fit: BoxFit.contain,
+                )), //?? Text("Empty"),
             Text(
               "VS",
               style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-                height: 50,
-                width: MediaQuery.of(context).size.width / 3,
-                child: Image.network(match.team2Image)),
+                height: 100,
+                width: 100,
+                child: Image.network(
+                  match.team2Image,
+                  fit: BoxFit.contain,
+                )),
           ],
         ),
         SizedBox(
@@ -41,7 +49,7 @@ class ReusableBuild extends StatelessWidget {
               ),
             ),
             Text(
-              'VS', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              '', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
               // textAlign: TextAlign.end,
             ),
@@ -54,14 +62,23 @@ class ReusableBuild extends StatelessWidget {
             )
           ],
         ),
+        SizedBox(
+          height: 20,
+        ),
         Text(
           match.dateTimeGMT.split("T")[0],
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 20,
         ),
         Text(
           match.status,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 20,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

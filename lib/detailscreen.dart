@@ -1,6 +1,5 @@
 import 'package:criclive/data.dart';
-import 'package:criclive/main.dart';
-import 'package:criclive/reusablebuild.dart';
+import 'package:criclive/detailedbuild.dart';
 import 'package:flutter/material.dart';
 
 class MatchDetailScreen extends StatelessWidget {
@@ -11,10 +10,12 @@ class MatchDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Match Details'),
-      ),
-      body: ReusableBuild(match: match)
-    );
+        backgroundColor: Color(0xffa3b18a),
+        // appBar: AppBar(
+        //   title: Text(match.matchType),
+        // ),
+        body: DetailedBuild(match: match)
+        //ReusableBuild(match: match)
+        );  
   }
 }
